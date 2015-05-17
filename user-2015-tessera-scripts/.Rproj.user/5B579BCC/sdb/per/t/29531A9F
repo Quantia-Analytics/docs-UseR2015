@@ -1,0 +1,17 @@
+{
+    "contents" : "dataPath <- \"C:\\\\Users\\\\Steve\\\\Documents\\\\R\\\\Tessera\\\\Data\\\\Subset\"\nfileName <- \"trip_1.csv\"\n\nload.raw <- function(path, file.name, nrows = -1, slash = \"\\\\\"){\n  ## Function reads the rather large raw taxi data file \n  ## as a data.table object.\n  require(data.table)\n  file.name <- paste(path, slash, file.name, sep = \"\")\n  fread(file.name, nrows = nrows)\n}\n\n\n#taxi <- load.raw(dataPath, fileName)\n#taxi <- taxi[pickup_datetime < \"2013-01-09 00:00:00\", ]\n#taxi <- data.frame(taxi)\n#write.csv(taxi, file = paste(dataPath, \"\\\\\", \"taxiOneWeek.csv\", sep =\"\"))\n\ncol.classes <- c(\"integer\", \n                 \"character\",\n                 \"character\",\n                 \"character\",\n                 \"integer\",\n                 \"character\",\n                 \"character\",\n                 \"character\",\n                 \"integer\",\n                 \"integer\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"character\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"numeric\",\n                 \"numeric\")\n\nload.ddf <- function(path, in.file, out.file, col.classes, slash = \"\\\\\"){\n  ## Function creates a ddf from a .csv file of the \n  ## taxi data.\n  require(datadr)\n  in.file <- paste(path, slash, in.file, sep = \"\")\n  out.file <- paste(path, slash, out.file, sep = \"\")\n  disk.con <- localDiskConn(out.file, autoYes = TRUE)\n  drRead.csv(in.file, output = disk.con, header = TRUE, \n             colClasses = col.classes, stringsAsFactors = FALSE) \n}\n\n\nin.file <-  \"taxiOneWeek.csv\"\nout.file <- \"taxiddf\"\ntaxi <- load.ddf(dataPath, in.file, out.file, col.classes)",
+    "created" : 1431738304344.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "144632396",
+    "id" : "29531A9F",
+    "lastKnownWriteTime" : 1431787725,
+    "path" : "C:/Users/Steve/GIT/StephenElston/docs-UseR2015/docs-UseR2015/user-2015-tessera-scripts/load-raw.R",
+    "project_path" : "load-raw.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
