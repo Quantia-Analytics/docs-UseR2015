@@ -4,4 +4,6 @@ This repository contains code, data and other materials for the UseR 2015 Tesser
 
 R code for the examples can be found in the R directory. 
 
-Data for the housing data can be installed by following **these instructions** and the taxi data can be downloaded **here**.
+Further information on this tutorial can be found on the [Tessera web site](http://tessera.io/docs-UseR2015/).
+
+A preliminary exploration of the taxi data set is also [available](http://hafen.github.io/taxi/#background).
